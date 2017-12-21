@@ -16,7 +16,13 @@ $Domain = (Get-WmiObject Win32_ComputerSystem).Domain
 #
 function addDomUserToLocalGroup($group, $user) {
 	$reference = [ADSI]"WinNT://$Computer/$group"
-	$reference.Add("WinNT://$Domain/$user")
+	try {
+		$reference.Add("WinNT://$Domain/$user")
+	}
+	catch {
+		Start-Sleep -s 10
+		$reference.Add("WinNT://$Domain/$user")
+	}
 }
 
 addDomUserToLocalGroup "Remote Desktop Users" "RDPUser"
