@@ -1,4 +1,3 @@
-New-Item -ItemType directory -Path C:\ENDLICH_FUNKTIONIERTS
 # __________________________________________________
 #
 # Setup
