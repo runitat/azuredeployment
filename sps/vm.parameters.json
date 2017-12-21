@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"Region": { "value": "dev" },
+		"Description": { "value": "kam" },
+		"Language": { "value": "en" },
+		"ProductName": { "value": "see" },
+		"ProductVersion": { "value": "51" },
+		"VirtualMachineAdminUserName": { "value": "VALUE" },
+		"VirtualMachineAdminPassword": { "value": "VALUE" },
+		"DomainUserName": { "value": "VALUE" },
+		"DomainPassword": { "value": "VALUE" }
+	}
+}
