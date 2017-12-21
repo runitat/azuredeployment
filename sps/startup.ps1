@@ -14,7 +14,7 @@ $Domain = (Get-WmiObject Win32_ComputerSystem).Domain
 #
 # Add
 #
-function addDomUserToLocalGroup($user, $group) {
+function addDomUserToLocalGroup($group, $user) {
 	$reference = [ADSI]"WinNT://$Computer/$group"
 	$reference.Add("WinNT://$Domain/$user")
 }
