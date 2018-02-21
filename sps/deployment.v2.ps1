@@ -13,7 +13,7 @@ Param(
 $StorageKey = "VALUE"
 $StorageName = "VALUE"
 $StorageContainer = "VALUE"
-$FileTemplate = "vm.json"
+$FileTemplate = "vm.v2.json"
 $FileDefaults = "vm.parameters.json"
 $Regions = @("ap", "ger", "isr", "na", "sw", "uk", "dev")
 $Languages = @("en", "de", "fr")
