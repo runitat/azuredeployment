@@ -14,13 +14,21 @@ Write-Output ""
 $Progress = 0
 Write-Output "Searching for unattached Network Interfaces..."
 $Interfaces = az network nic list --query '[?virtualMachine==`null`].[id]' -o tsv
-Write-Output "Found $($Interfaces.length) unattached Network Interfaces."
+$Count = 0
+if ($Interfaces -is [array]) {
+	$Count = $Interfaces.length
+}
+elseif ($Interfaces -is [string]) {
+	$Count = 1
+}
+Write-Output "Found $($Count) unattached Network Interfaces."
 Write-Output ""
-If($Interfaces.length -ne 0) {
+If($Count -ne 0) {
 	$Action = Read-Host -Prompt "Do you want to delete all Network Interfaces? (y/n)"
+	Write-Output ""
 	foreach ($Interface in $Interfaces) {
 		$Progress++
-		Write-Output "___ Resource ($Progress/$($Interfaces.length)) ___"
+		Write-Output "___ Resource ($Progress/$($Count)) ___"
 		if ($Action -eq "y") {
 			Write-Output "Looking for Resource-Connections..."
 			$NIC = az network nic show --ids $Interface --query 'id'
